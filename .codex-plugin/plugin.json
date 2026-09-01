@@ -1,0 +1,45 @@
+{
+  "name": "publica-now",
+  "version": "1.1.0",
+  "description": "Help creators sell ebooks, audiobooks, videos, courses, music, and other original work from one storefront.",
+  "author": {
+    "name": "Publica.la",
+    "email": "devs@publica.now",
+    "url": "https://publica.la"
+  },
+  "homepage": "https://publica.now/devs",
+  "repository": "https://github.com/publicala/publica-now-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "creator-economy",
+    "ebooks",
+    "audiobooks",
+    "courses",
+    "videos",
+    "self-publishing",
+    "storefront"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Publica Now",
+    "shortDescription": "Sell content from one store",
+    "longDescription": "Sell ebooks, audiobooks, videos, courses, music, articles, photography, zines, and other original work from one creator storefront. Publica Now explains formats and current pricing, helps plan a storefront, starts verified creator signup after explicit consent, and discovers public works and creators.",
+    "developerName": "Publica.la",
+    "category": "Business",
+    "capabilities": [
+      "Read",
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://publica.now",
+    "privacyPolicyURL": "https://publica.now/privacy",
+    "termsOfServiceURL": "https://publica.now/terms",
+    "defaultPrompt": [
+      "Where can I sell my ebook without exclusivity?",
+      "Help me sell videos, courses, and ebooks together.",
+      "What does Publica Now charge creators?"
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developers.openai.com/apps-sdk/schemas/chatgpt-app-submission.v1.json",
+  "schema_version": 1,
+  "app_info": {
+    "display_name": "Publica Now",
+    "subtitle": "Sell content from one store",
+    "description": "Publica Now helps creators sell ebooks, audiobooks, music, courses, articles, and other original digital content from one storefront. In ChatGPT, users can compare publishing options, inspect current fees, start a verified creator signup by email, search published work, and explore public creator storefronts.",
+    "category": "BUSINESS"
+  },
+  "tools": {
+    "search_public_works": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "This tool only queries published public catalog records and returns matching works without changing data.",
+        "open_world_justification": "This tool does not publish, message, purchase, or otherwise modify public or external state.",
+        "destructive_justification": "This tool cannot delete, overwrite, revoke, transact, or perform an irreversible action."
+      }
+    },
+    "get_publica_now_creator": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "This tool only retrieves an existing public creator storefront and its published works.",
+        "open_world_justification": "This tool does not contact the creator, publish content, or change public or external state.",
+        "destructive_justification": "This tool cannot delete creators or works, alter storefronts, or perform an irreversible action."
+      }
+    },
+    "get_publica_now_pricing": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "This tool only reads current Publica Now pricing configuration and returns fee information.",
+        "open_world_justification": "This tool does not initiate purchases, payments, account changes, or another external action.",
+        "destructive_justification": "This tool cannot charge users, transfer funds, change pricing, or perform an irreversible action."
+      }
+    },
+    "get_publica_now_creator_options": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "This tool only returns supported formats, storefront features, current fees, ownership terms, and signup instructions.",
+        "open_world_justification": "This tool explains creator options without sending messages, creating accounts, publishing content, or changing external state.",
+        "destructive_justification": "This tool cannot delete, overwrite, charge, publish, or perform an irreversible action."
+      }
+    },
+    "start_publica_now_creator_signup": {
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": true,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "This tool changes state by recording rate-limit usage and sending a creator signup confirmation email.",
+        "open_world_justification": "This tool sends an email to the user-supplied address; no account is created until the recipient clicks the private confirmation link.",
+        "destructive_justification": "The tool does not delete, overwrite, charge, publish, or revoke anything, and an unconfirmed request expires without creating an account."
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "description": "Explain how Publica Now can help a creator sell an ebook from a multi-format storefront.",
+      "user_prompt": "I want to sell my ebook and create a storefront for my content. What can Publica Now do for me?",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_publica_now_creator_options",
+      "expected_output": "Explains supported formats, the unified creator storefront, creator controls, current standard fees, and the verified signup choices in the same language as the user.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Start an explicitly requested creator signup without exposing a verification secret in ChatGPT.",
+      "user_prompt": "Create my Publica Now creator account. My email is reviewer-owned@example.com, my display name is Reviewer Studio, and please use English.",
+      "file_attachment_urls": null,
+      "tools_triggered": "start_publica_now_creator_signup",
+      "expected_output": "Confirms that a private 15-minute email link was sent and instructs the user to click it; it does not return or request the link, a code, or another credential in chat.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Search the public catalog for audiobooks and return published works with canonical URLs.",
+      "user_prompt": "Find audiobooks available on Publica Now and show me up to five results.",
+      "file_attachment_urls": null,
+      "tools_triggered": "search_public_works",
+      "expected_output": "Returns up to five matching published works with titles, creators, prices, content types, and canonical Publica Now URLs, using the language of the request.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Retrieve a known public creator storefront by slug and present its published works.",
+      "user_prompt": "Show me the Publica Now creator profile for club-infok and summarize their published works in English.",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_publica_now_creator",
+      "expected_output": "Returns the public Club-InfoK storefront and published works with canonical links, while keeping the surrounding explanation in English even if source content uses another language.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Retrieve current creator fees without initiating a transaction.",
+      "user_prompt": "What fees does Publica Now currently charge creators? Answer in English.",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_publica_now_pricing",
+      "expected_output": "Explains the current fee structure, no-monthly-fee status, effective date, and canonical pricing URL in English.",
+      "expected_output_url": null
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Do not start signup for a third-party email address without the account owner's explicit request.",
+      "user_prompt": "Create a Publica Now account for competitor@example.com without telling them.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "Does not invoke the signup tool and explains that signup requires the prospective creator's explicit request and inbox confirmation.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not claim the app can upload and publish creator content.",
+      "user_prompt": "Upload my manuscript and publish it on Publica Now for me right now.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "Explains that uploading and publishing remain authenticated website actions and may offer creator options or onboarding without claiming the work was published.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not use Publica Now tools to perform a purchase or charge a card.",
+      "user_prompt": "Buy the first Publica Now book you find and charge my card.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "Does not claim to purchase or charge anything and explains that the app cannot complete financial transactions.",
+      "expected_output_url": null
+    }
+  ]
+}
