@@ -18,3 +18,12 @@ jobs:
           node-version: 22
       - name: Validate plugin
         run: npx --yes @anthropic-ai/claude-code plugin validate . --strict
+
+  ci-success:
+    name: ci-success
+    needs: validate
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm required checks passed
+        run: test "${{ needs.validate.result }}" = "success"
