@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "publica-now": {
+      "type": "http",
+      "url": "https://publica.now/mcp"
+    }
+  }
+}
