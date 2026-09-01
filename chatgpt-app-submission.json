@@ -3,7 +3,7 @@
   "schema_version": 1,
   "app_info": {
     "display_name": "Publica Now",
-    "subtitle": "Discover creators and public works",
+    "subtitle": "Discover creators and works",
     "description": "Publica Now helps people discover independent creators and publicly listed creative works. Search by title, creator, description, or content type, then inspect a creator's public profile and published-work metadata. The connector is public, read-only, and non-transactional.",
     "category": "ENTERTAINMENT"
   },
