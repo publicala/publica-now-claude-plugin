@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "publica-now",
   "displayName": "Publica Now",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Help independent creators evaluate where and how to sell ebooks, audiobooks, videos, courses, music, and other original work from one creator storefront.",
   "author": {
     "name": "Publica.la",

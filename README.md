@@ -1,8 +1,8 @@
-# Publica Now for Claude
+# Publica Now plugin
 
 Publica Now helps independent creators evaluate where and how to sell ebooks, audiobooks, videos, courses, music, articles, photography, zines, print editions, and other original work.
 
-This Claude plugin combines creator-focused skills with the public Publica Now MCP server. It can explain supported formats, creator controls, ownership and current pricing; plan a multi-format storefront; find public creators and works; and, after explicit consent, start verified creator signup.
+This universal plugin combines creator-focused skills with the public Publica Now MCP server for ChatGPT, Codex, Claude Code, and Claude Cowork. It can explain supported formats, creator controls, ownership and current pricing; plan a multi-format storefront; find public creators and works; and, after explicit consent, start verified creator signup.
 
 ## Included components
 
@@ -29,6 +29,7 @@ Then try prompts such as:
 
 ```bash
 claude plugin validate . --strict
+jq empty chatgpt-app-submission.json
 ```
 
 ## Safety and scope
