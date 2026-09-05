@@ -25,13 +25,12 @@
   "interface": {
     "displayName": "Publica Now",
     "shortDescription": "Sell content from one store",
-    "longDescription": "Sell ebooks, audiobooks, videos, courses, music, articles, photography, zines, and other original work from one creator storefront. Publica Now explains formats and current pricing, helps plan a storefront, starts verified creator signup after explicit consent, and discovers public works and creators.",
+    "longDescription": "Sell ebooks, audiobooks, videos, courses, music, articles, photography, zines, and other original work from one creator storefront. Publica Now explains formats and current pricing, helps plan a storefront, explains website signup, and discovers public works and creators.",
     "developerName": "Publica.la",
     "category": "Business",
     "capabilities": [
       "Read",
-      "Interactive",
-      "Write"
+      "Interactive"
     ],
     "websiteURL": "https://publica.now",
     "privacyPolicyURL": "https://publica.now/privacy",
