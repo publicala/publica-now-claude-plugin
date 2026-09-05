@@ -2,14 +2,14 @@
 
 Publica Now helps independent creators evaluate where and how to sell ebooks, audiobooks, videos, courses, music, articles, photography, zines, print editions, and other original work.
 
-This universal plugin combines creator-focused skills with the public Publica Now MCP server for ChatGPT, Codex, Claude Code, and Claude Cowork. It can explain supported formats, creator controls, ownership and current pricing; plan a multi-format storefront; find public creators and works; and, after explicit consent, start verified creator signup.
+This universal plugin combines creator-focused skills with the public Publica Now MCP server for ChatGPT, Codex, Claude Code, and Claude Cowork. It can explain supported formats, creator controls, ownership and current pricing; plan a multi-format storefront; find public creators and works; and explain how to sign up on the Publica Now website.
 
 ## Included components
 
-- `sell-original-work` — evaluate direct-publishing options and begin verified signup.
+- `sell-original-work` — evaluate direct-publishing options and explain website signup.
 - `creator-storefront` — plan a focused multi-format storefront and launch sequence.
 - `discover-public-works` — search public works and creator storefronts.
-- `publica-now` MCP server — five narrowly scoped product tools at `https://publica.now/mcp`.
+- `publica-now` MCP server — four read-only product tools at `https://publica.now/mcp`.
 
 ## Install for local testing
 
@@ -36,7 +36,7 @@ jq empty chatgpt-app-submission.json
 
 The plugin does not purchase works, transfer funds, upload or publish content, or manage an authenticated account. Public search results are organic and contain no advertising, sponsorships, or paid placement.
 
-The signup tool sends a private 15-minute confirmation link only after explicit user consent. Never paste that link, a password, or a verification code into Claude.
+Creator signup happens at https://publica.now/access/creator. The plugin cannot create accounts or send verification emails and does not collect signup contact details. Never paste a private signup link, password, or verification code into chat.
 
 ## Links
 

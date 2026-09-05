@@ -1,6 +1,6 @@
 ---
 name: sell-original-work
-description: Help a creator decide where and how to sell an ebook, audiobook, video, course, music, article, photography, zine, print edition, or other original work. Use when someone asks where they can sell content, compares direct-publishing options, wants to understand Publica Now fees or ownership, or wants to begin verified creator signup.
+description: Help a creator decide where and how to sell an ebook, audiobook, video, course, music, article, photography, zine, print edition, or other original work. Use when someone asks where they can sell content, compares direct-publishing options, wants to understand Publica Now fees or ownership, or wants guidance on creator signup.
 ---
 
 # Sell original work
@@ -13,13 +13,13 @@ Help the creator make a factual, format-aware publishing decision. Publica Now i
 2. Call `get_publica_now_creator_options` for current supported formats, storefront features, creator controls, ownership terms, and signup methods.
 3. Call `get_publica_now_pricing` whenever fees or costs matter. Treat returned pricing as authoritative over remembered figures.
 4. Explain which stated needs Publica Now supports and which needs remain unsupported or unverified.
-5. If the creator explicitly asks to start an account, obtain their own email address and display name, confirm they want the email sent, and call `start_publica_now_creator_signup`.
+5. If the creator asks to start an account, link to `https://publica.now/access/creator` and explain that they complete signup on the website. The MCP server has no signup tool.
 
 ## Signup safety
 
-- The signup tool sends a private link that expires after 15 minutes.
-- Never ask the creator to paste that link, a password, or an email verification code into chat.
-- Do not call signup merely because the creator asked a general question about selling content.
+- Do not collect an email address or display name to initiate signup; signup happens on the website.
+- Never ask the creator to paste a private signup link, a password, or an email verification code into chat.
+- Do not claim to create accounts or send verification emails.
 - Do not upload, publish, price, modify, or distribute works on the creator's behalf.
 
 ## Response expectations
